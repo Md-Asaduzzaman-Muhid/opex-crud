@@ -4,6 +4,8 @@ namespace Config;
 
 use CodeIgniter\Config\BaseService;
 
+require_once SYSTEMPATH . 'Config/Services.php';
+
 /**
  * Services Configuration file.
  *

@@ -32,8 +32,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'UserController::index', ['filter' => 'noauth']);
+$routes->get('logout', 'UserController::logout');
+$routes->match(['get','post'],'register', 'UserController::register', ['filter' => 'noauth']);
+$routes->match(['get','post'],'profile', 'UserController::profile',['filter' => 'auth']);
 
+$routes->get('/crud', 'MovieController::index');
+$routes->get('/crud/add', 'MovieController::add');
+$routes->post('/crud/add', 'MovieController::save');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
